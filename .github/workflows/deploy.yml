@@ -1,0 +1,29 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Copy config-nq0m.js to config.js
+        run: cp config-nq0m.js config.js
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Wrangler
+        run: npm install -g wrangler
+
+      - name: Publish to Cloudflare Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: wrangler publish
