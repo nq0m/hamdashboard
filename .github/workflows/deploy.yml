@@ -19,7 +19,7 @@ jobs:
         run: cp hamdash.html dist/index.html
 
       - name: Copy config-nq0m.js to config.js
-        run: cp config-nq0m.js dist/config.js
+        run: cp config.js dist/config.js
 
       - name: Copy wheelzoom.js to dist
         run: cp wheelzoom.js dist/wheelzoom.js
