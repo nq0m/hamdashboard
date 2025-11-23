@@ -14,8 +14,15 @@ jobs:
       - name: Checkout your repo
         uses: actions/checkout@v4
 
+
       - name: Clone upstream hamdashboard
         run: git clone https://github.com/VA3HDL/hamdashboard.git dist
+
+      - name: Remove .git folder from dist
+        run: rm -rf dist/.git
+
+      - name: Rename hamdash.html to index.html
+        run: mv dist/hamdash.html dist/index.html
 
       - name: Copy custom config
         run: cp nq0m.js dist/config.js
@@ -29,9 +36,5 @@ jobs:
         run: npm install -g wrangler
 
       - name: Deploy with Wrangler
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: 1772cfe129955ef3e7c8114596902682
         run: |
-          cd dist
-          wrangler pages deploy .
+          wrangler deploy
