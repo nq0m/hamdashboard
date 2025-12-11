@@ -1,5 +1,5 @@
 const disableSetup = false;
-var topBarCenterText = `VA3HDL - FN04ga`;
+var topBarCenterText = `NQ0M - EM27`;
 
 // Grid layout
 var layout_cols = 4;
@@ -66,7 +66,7 @@ var aIMG = [
   ],
   [
     "NOAA D-RAP",
-    "https://services.swpc.noaa.gov/images/animations/d-rap/global/d-rap/latest.png",
+    "https://services.swpc.noaa.gov/images/animations/d-rap/global/latest.png",
   ],
   [
     "ISS POSITION",
